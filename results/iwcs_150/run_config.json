@@ -1,0 +1,72 @@
+{
+  "created_for": "Japan A0 poster analysis",
+  "datasets": {
+    "dataset_A": {
+      "windows": 1440,
+      "subjects": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "p07",
+        "p08"
+      ],
+      "trials": [
+        1,
+        2,
+        3
+      ],
+      "class_counts": {
+        "rotL": 240,
+        "rotR": 240,
+        "tiltU": 240,
+        "tiltD": 240,
+        "leanL": 240,
+        "leanR": 240
+      }
+    }
+  },
+  "signals": [
+    "relative_euler_axis_1",
+    "relative_euler_axis_2",
+    "relative_euler_axis_3",
+    "angular_velocity_x",
+    "angular_velocity_y",
+    "angular_velocity_z"
+  ],
+  "relative_angle_baseline_frames": 5,
+  "sequence_length": 150,
+  "rf_features_per_channel": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "range",
+    "rms",
+    "signed_peak",
+    "delta"
+  ],
+  "rf_trees": 400,
+  "cnn": "Conv1D(32,k5)-BN-ReLU-Pool-Conv1D(64,k5)-BN-ReLU-Pool-Conv1D(64,k3)-GAP-Dense(6)",
+  "lstm": "LSTM(64)-Dense(6)",
+  "normalization": "channel-wise mean/std fitted on each fold training set only",
+  "validation": "16.7% stratified split from fold training set; test fold never used for early stopping",
+  "epochs_max": 60,
+  "early_stopping_patience": 8,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "protocols": [
+    "loto",
+    "loso"
+  ],
+  "models": [
+    "rf",
+    "cnn1d",
+    "lstm"
+  ]
+}

@@ -1,0 +1,6 @@
+# Inferred from imports (versions not pinned; the original run's versions are unknown -> 확인 필요)
+numpy
+pandas
+scikit-learn
+matplotlib
+tensorflow   # Keras CNN1D / LSTM
